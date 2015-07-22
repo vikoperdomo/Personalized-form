@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Minimal Form Interface</title>
+		<meta name="description" content="Minimal Form Interface: Simplistic, single input view form" />
+		<meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition" />
+		<meta name="author" content="designs" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>		
+		<script type="text/javascript" src="js/ZeroClipboard.js"></script>
+		<script language="JavaScript">
+		  ////copy to clip
+		  var clip = null;
+
+		  clip.addEventListener( 'onComplete', my_complete );
+
+		  function init() {
+		    clip = new ZeroClipboard.Client();
+		    clip.setHandCursor( true );
+		    clip.addEventListener( 'complete', function(client, text) {
+		      // alert(" Your content is here : " + text + "\n Content already copied on clipboard !");
+		    alert(" Your content is here :\n " + text );
+
+		    } );
+		  }
+
+		  function move_swf(ee) {    
+		    copything = document.getElementById(ee.id+"_text").value;
+		    clip.setText(copything);
+		    if (clip.div) {   
+		      clip.receiveEvent('mouseout', null);
+		      clip.reposition(ee.id);
+		    }
+		      else{ clip.glue(ee.id);
+		    }
+		    clip.receiveEvent('mouseover', null);
+		  }    
+	</script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<header class="designs-header">
+		<h1>Personalized Form Interface <span><h2>Help your customers feel secure when shopping on your store</h2>
+<p>Privacy policies are mandated by law in many countries & they’re also a great way to help your customers trust your store. Get your free template by filling out the form below.</p></span></h1>
+
+<div class="clear"></div>
+
+			</header>
+			<section>
+			    <div id="form">
+					<form id="theForm" class="simform" autocomplete="off">
+						<div class="simform-inner">
+							<ol class="questions">
+								<li>
+									<span><label for="q1">Business Name</label></span>
+									<input placeholder="Business Name" value"[store_name]" type="text" name="business" id="business">
+									<!-- <input id="q1" name="q1" type="text"/> -->
+								</li>
+								<li>
+									<span><label for="q2">Street Address</label></span>
+								    <input placeholder="Street Address"  type="text" name="street" id="street">
+									<!-- <input id="q2" name="q2" type="text"/> -->
+								</li>
+								<li>
+									<span><label for="q3">State</label></span>
+									    <input placeholder="State"  type="text"  name="states" id="states">
+									<!-- <input id="q3" name="q3" type="text"/> -->
+								</li>
+								<li>
+									<span><label for="q4">Post Code</label></span>
+	    							<input placeholder="Post Code" type="text"  name="postcode" id="postcode">
+									<!-- <input id="q4" name="q4" type="text"/> -->
+
+								</li>
+								<li>
+									<span><label for="q5">Email Address</label></span>
+	   								 <input placeholder="Email Address" type="text" name="email" id="email">
+									<!-- <input id="q5" name="q5" type="text"/> -->
+								</li>
+								<li>
+									<span><label for="q6">City</label></span>
+									<input placeholder="City" type="text" name="city"  id="city">
+									<!-- <input id="q6" name="q6" type="text"/> -->
+								</li>
+								<li>
+									<span><label for="q7">Country</label></span>
+									 <input placeholder="Country" type="text" name="country"  id="country">
+									<!-- <input id="q6" name="q6" type="text"/> -->
+								</li>
+							</ol><!-- /questions -->
+							<button  id="ab" onClick="content_textarea()" class="submit" type="submit">Generate Documents</button>
+
+							<div class="controls">
+								<button class="next"></button>
+								<div class="progress"></div>
+								<span class="number">
+									<span class="number-current"></span>
+									<span class="number-total"></span>
+								</span>
+								<span class="error-message"></span>
+							</div><!-- / controls -->
+						</div><!-- /simform-inner -->
+						<span class="final-message"></span>
+					</form>
+					<!-- /simform -->	
+				</div>
+				<div id="form">
+				  <form id="loginForm">
+				    <input placeholder="Business Name" value"[store_name]" type="text" name="business" id="business">
+				    <input placeholder="Street Address"  type="text" name="street" id="street">
+				    <input placeholder="State"  type="text"  name="states" id="states">
+				    <input placeholder="Post Code" type="text"  name="postcode" id="postcode">
+				    <input placeholder="Email Address" type="text" name="email" id="email">
+				    <input placeholder="City" type="text" name="city"  id="city">
+				    <input placeholder="Country" type="text" name="country"  id="country">
+				    <input type="submit" id="ab" class="submit-btn" value="Generate Documents" onClick="content_textarea()" /> 
+				  </form>
+				</div>
+			     <div id="container-areas">
+				    <div class="content-left">
+				        <div class="bold"><p>Refund Policy <div class="replicate-value store_name"></div></p></div>
+				        <div class="copy" id="text1" onMouseOver="move_swf(this)"> Copy</div>
+				        <textarea class="scroller" id="text1_text" >
+				            RETURNS
+				            Our policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately we cannot offer you a refund or exchange.
+				            To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging.
+				            Several types of goods are exempt from being returned. Perishable goods such as food, flowers, newspapers or magazines cannot be returned. We also do not accept products that are intimate or sanitary goods, hazardous materials, or flammable liquids or gases.
+
+				            Additional non-returnable items include:
+				              Gift cards
+				              Downloadable software products
+				              Some health and personal care items
+
+				            To complete your return, we require a receipt or proof of purchase.
+				            Please do not send your purchase back to the manufacturer.
+
+				            There are certain situations where only partial refunds are granted: (if applicable)
+				              Book with obvious signs of use
+				              CD, DVD, VHS tape, software, video game, cassette tape, or vinyl record that has been opened.
+				              Any item not in its original condition, is damaged or missing parts for reasons not due to our error.
+				              Any item that is returned more than 30 days after delivery
+
+				            REFUNDS (if applicable)
+				            Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund.
+				            If you are approved, then your refund will be processed, and a credit will automatically be applied to your credit card or original method of payment, within a certain amount of days. 
+
+				            Late or missing refunds (if applicable)
+				            If you haven't received a refund yet, please check your bank or credit card account again then contact the respective financial institution, as there is often some processing time before a refund is posted.  
+				            If you've done all of this and you still have not received your refund yet, please contact us at email_default.
+
+				            Sale items (if applicable)
+				            Only regular priced items may be refunded, unfortunately sale items cannot be refunded.
+
+				            EXCHANGES (if applicable)
+				            We only replace items if they are defective or damaged.  If you need to exchange it for the same item, send us an email at email_default and send your item to: address_default city_default state_default zip_default.
+
+				            Gifts
+				            If the item was marked as a gift when purchased and shipped directly to you, you will receive a gift credit for the value of your return. Once the returned item is received, a gift certificate will be mailed to you.
+				            If the item was not marked as a gift when purchased, or the gift giver had the order shipped to themselves to give to you later, we will send a refund to the gift giver and he will find out about your return.
+
+				            SHIPPING
+				            To return your product, you should mail your product to: address_default city_default state_default zip_default.
+
+				            You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund.
+
+				            Depending on where you live, the time frame to receive your exchanged product may vary.
+
+				            If you are returning an item over $75, you should consider using a shipping service that offers tracking or purchasing shipping insurance. 
+				            We offer no guarantees towards the receiving of your returned item.
+				        </textarea>
+				    </div>
+				    <div class="content-left">
+				      <div class="bold"><p>Privacy Policy</p></div>
+				        <div class="copy" id="text2" onMouseOver="move_swf(this)"> Copy</div>
+				         <!--<p id="target-to-copy-text-second" class="copy-button" style="display:none !important;">Text Copied.</p> -->
+				      <textarea class="scroller text" id="text2_text">
+				          SECTION 1 - TRANSACTIONAL INFORMATION
+				          What do you do with my information?
+
+				          When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.
+				          When you browse our store, we also automatically receive your computer Internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.
+
+				          Email marketing (if applicable): 
+				          With your permission, we may send you emails about our store, new products and other updates.
+
+				          SECTION 2 - CONSENT
+				          How do you get my consent?
+
+				          When you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery or return a purchase, we imply that you consent to our collecting it and using it for that specific reason only.
+				          If we ask for your personal information for a secondary reason, such as marketing, we will either ask you directly for your expressed consent, or provide you with an opportunity to say no.
+
+				          How do I withdraw my consent?
+
+				          After you opt-in, if you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at any time, by contacting us at email_default or mailing us at: store_name_default address_default city_default state_default country_default zip_default.
+
+				          SECTION 3 - DISCLOSURE
+				          Do you disclose my information?
+
+				          We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service.
+
+				          SECTION 4 - 3dcart
+
+				          Our store is hosted on 3dcart. They provide us with the online e-commerce platform that allows us to sell our products and services to you.
+				          Your data is stored through 3dcart's data storage, databases and the general 3dcart application. As such, your data is stored on a secure server behind a firewall.
+
+				          Payment:
+
+				          If you choose a direct payment gateway to complete your purchase, 3dcart stores your credit card data. The store data is encrypted through the Payment Card Industry Data Security Standard (PCI-DSS). Your purchase transaction data is stored only as long as is necessary to complete your purchase transaction. After that is complete, your purchase transaction information is deleted.
+				          All direct payment gateways adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express and Discover.
+				          PCI-DSS requirements help ensure the secure handling of credit card information by our store and its service providers.
+				          For more insight, you may also want to read 3dcart's Terms of Service here or Privacy Statement here.
+
+				          SECTION 5 - THIRD-PARTY SERVICES
+
+				          In general, the third-party providers we use will only collect, use, and disclose your information to the extent necessary to allow them to perform the services they provide to us.
+				          However, certain third-party service providers, such as payment gateways and other payment transaction processors, have their own privacy policies in respect to the information we are required to provide to them for your purchase-related transactions.
+				          For these providers, we recommend that you read their privacy policies so you can understand the manner in which your personal information will be handled by these providers.
+
+				          In particular, remember that certain providers may be located in or have facilities that are located in a different jurisdiction than either you or us. So if you elect to proceed with a transaction that involves the services of a third-party service provider, then your information may become subject to the laws of the jurisdiction(s) in which that service provider or its facilities are located.
+
+				          As an example, if you are located in Canada and your transaction is processed by a payment gateway located in the United States, then your personal information used in completing that transaction may be subject to disclosure under United States legislation, including the Patriot Act.
+
+				          Once you leave our store website or are redirected to a third-party website or application, you are no longer governed by this Privacy Policy or our website's Terms of Service. 
+
+				          Links
+
+				          When you click on links on our store, they may direct you away from our site. We are not responsible for the content or privacy practices of other sites and encourage you to read their privacy statements.
+
+				          SECTION 6 - SECURITY
+
+				          To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.
+
+				          If you provide us with your credit card information, the information is encrypted using secure socket layer technology (SSL) and stored with AES-256 encryption.  Although no method of transmission over the Internet or electronic storage is 100% secure, we follow all PCI-DSS requirements and implement additional generally accepted industry standards.
+
+				          SECTION 7 - COOKIES
+
+				          Here is a list of cookies that we use. We've listed them here so you that you can choose if you want to opt-out of cookies or not.
+
+				            _session_id, unique token, sessional, Allows 3dcart to store information about your session (referrer, landing page, etc).
+				            _3dcart_visit, no data held, Persistent for 30 minutes from the last visit, Used by our website provider's internal stats tracker to record the number of visits
+				            _3dcart_uniq, no data held, expires midnight (relative to the visitor) of the next day, Counts the number of visits to a store by a single customer.
+				            cart, unique token, persistent for 2 weeks, Stores information about the contents of your cart.
+				            _secure_session_id, unique token, sessional
+				            storefront_digest, unique token, indefinite If the shop has a password, this is used to determine if the current visitor has access.
+
+				          SECTION 8 - AGE OF CONSENT
+
+				          By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.
+
+				          SECTION 9 - CHANGES TO THIS PRIVACY POLICY
+
+				          We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it.
+
+				          If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you.
+
+				          QUESTIONS AND CONTACT INFORMATION
+
+				          If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at email_default or by mail at store_name_default
+				          [Re: Privacy Compliance Officer]
+				          address_default city_default state_default country_default zip_default
+				    </textarea>
+				    </div>
+				    <div class="content-left">
+				      <div class="bold"><p>Terms of Service</p></div>
+				        <div class="copy" id="text3" onMouseOver="move_swf(this)"> Copy</div>
+				      <textarea class="scroller text" id="text3_text">
+				        SECTION 1 - ORDER ACCEPTANCE POLICY
+				        Your receipt of an electronic or other form of order confirmation does not signify our acceptance of your order, nor does it constitute confirmation of our offer to sell. store_name_default reserves the right at any time after receipt of your order to accept or decline your order for any reason or to supply less than the quantity you ordered of any item.
+
+				        SECTION 2 - CREDIT CARDS
+				        We accept the following credit cards: Visa, MasterCard,and Discover. There is no surcharge for using your credit card to make purchases. Please be sure to provide your exact billing address and telephone number (i.e. the address and phone number your credit card bank has on file for you). Incorrect information will cause a delay in processing your order. Your credit card will be billed upon completion of your order.
+
+				        SECTION 3 - MONEY ORDERS, CASHIER'S CHECKS, COMPANY CHECKS & PERSONAL CHECKS
+				        We accept money orders, cashier’s checks, personal checks, and company checks in country_default currency only. Orders are processed upon receipt of a money order or cashier’s check. For personal and company checks, please allow up to 10 banking days after receipt for clearance of funds before the order is processed. We cannot guarantee the availability of a product by the time funds clear or payment is received. We will charge a $25 fee on all returned checks. 
+
+				        SECTION 4 - ORDER SHIPPING POLICY
+				        Shipping Time 
+				        Most orders received before 5:00PM will ship the same day, provided the product ordered is in stock. Most orders received after 5:00 PM will ship the next business day. Orders are not processed or shipped on Saturday or Sunday, except by prior arrangement.
+				        We cannot guarantee when an order will arrive. Consider any shipping or transit time offered to you by store_name_default or other parties only as an estimate. We encourage you to order in a timely fashion to avoid delays caused by shipping or product availability.
+
+				        SECTION 5 - OUT OF STOCK PRODUCTS
+				        We will ship your product as it becomes available. Usually, products ship the same day if ordered by 5:00PM, or by the next business day if your order is received after this time and for orders received on Saturday, Sunday or any major holiday. However, there may be times when the product you have ordered is out-of-stock which will delay fulfilling your order. We will keep you informed of any products that you have ordered that are out-of-stock and unavailable for immediate shipment. You may cancel your order at any time prior to shipping.
+
+				        SECTION 6 - MULTIPLE PRODUCT ORDERS
+				        For a multiple product order, we will make every attempt to ship all products contained in the order at the same time. Products that are unavailable at the time of shipping will be shipped as they become available, unless you inform us otherwise. You will only be charged for products contained in a given shipment, plus any applicable shipping charges. You will only be charged for shipping at the rate quoted to you on your purchase receipt. The entirety of this shipping charge may be applied to the first product(s) shipped on a multiple shipment order.
+
+				        SECTION 7 - TAXES
+				        Our Store shall automatically charge and withhold the applicable sales tax for orders to be delivered to addresses within the state of state_default. For orders shipped to other states, you are solely responsible for all sales taxes or other taxes.
+
+				        SECTION 8 - TYPOGRAPHICAL ERRORS
+				        In the event a product is listed at an incorrect price due to typographical error or error in pricing information received from our suppliers, store_name_default shall have the right to refuse or cancel any orders placed for product listed at the incorrect price. store_name_default shall have the right to refuse or cancel any such orders whether or not the order has been confirmed and your credit card charged. If your credit card has already been charged for the purchase and your order is canceled, store_name_default shall immediately issue a credit to your credit card account in the amount of the incorrect price
+
+				        SECTION 9 - LINKS
+				        This site may contain links to other sites on the Internet that are owned and operated by third parties. You acknowledge that store_name_default is not responsible for the operation of or content located on or through any such site.
+
+				        SECTION 10 - COPYRIGHT AND TRADEMARK NOTICE
+				        Unless otherwise specified, all materials appearing on this site, including the text, site design, logos, graphics, icons, and images, as well as the selection, assembly and arrangement thereof, are the sole property of store_name_default, Copyright © [year], ALL RIGHTS RESERVED.  You may use the content of this site only for the purpose of shopping on this site or placing an order on this site and for no other purpose. No materials from this site may be copied, reproduced, modified, republished, uploaded, posted, transmitted, or distributed in any form or by any means without our prior written permission. All rights not expressly granted herein are reserved. Any unauthorized use of the materials appearing on this site may violate copyright, trademark and other applicable laws and could result in criminal or civil penalties.
+
+				        SECTION 11 - OTHER CONDITIONS
+				        These Conditions will supersede any terms and/or conditions you include with any purchase order, regardless of whether store_name_default signs them or not. We reserve the right to make changes to this site and these Conditions at any time.
+				      </textarea>
+				    </div>
+				 </div>
+			</section>
+		</div><!-- /container -->
+
+		<script src="js/classie.js"></script>
+		<script src="js/stepsForm.js"></script>
+		<script>
+			var theForm = document.getElementById( 'theForm' );
+
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+					/*
+					form.submit()
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+
+					// let's just simulate something...
+					var messageEl = theForm.querySelector( '.final-message' );
+					messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+					classie.addClass( messageEl, 'show' );
+				}
+			} );
+		</script>
+
+		<script type="text/javascript">
+			  $('#mySubmita').on('click', function() {
+			    $('#emailInfo, #contactInfo, #phoneInfo, #frmToolTip').hide();
+			    $('#contact').animate({
+			        marginTop: '94px',
+			        opacity: 0
+			      }, 500 );
+			    $('#email').delay(100).animate({
+			        marginTop: '94px',
+			        opacity: 0
+			      }, 500 );
+			    $('#phone').delay(200).animate({
+			        marginTop: '94px',
+			        opacity: 0
+			      }, 500 );
+			    $('#mySubmit').delay(500).animate({
+			      right: '40%'
+			    });
+			    $('#mySubmit').val('Processing...');
+			  });
+			</script>
+			<!-- DOM FOR PERSONALIZE YOUR POLICY -->
+			<script type="text/javascript">
+			  $('#form').show();
+			  $('#ab').click(function (e) {
+			      e.preventDefault();
+			      $('#form').slideUp();
+			      $('#container-areas').slideDown();
+			  });
+			</script>
+			<script type="text/javascript">
+
+			  function content_textarea() {
+
+			    var option1 = jQuery('#business').val();
+			    var option2 = jQuery('#street').val();
+			    var option3 = jQuery('#states').val();
+			    var option4 = jQuery('#postcode').val();
+			    var option5 = jQuery('#email').val();
+			    var option6 = jQuery('#city').val();
+			    var option7 = jQuery('#country').val();
+			    
+			//    console.log('The screet address was' + option2);
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\bstore_name_default\b/g, option1);
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\baddress_default\b/g, option2);
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\bstate_default\b/g, option3 );
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\bzip_default\b/g, option4 );
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\bemail_default\b/g, option5 );
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\bcity_default\b/g, option6 );
+			    jQuery('#text1_text, #text2_text, #text3_text').replaceText( /\bcountry_default\b/g, option7 );
+			    console.log('The new fields are now ' + option1 + ' ' + option2 + ' ' + option3 + ' ' + option4 + ' ' + option5 + ' ' + option6 + ' ' + option7 + '.');
+			  }
+
+			//      jQuery('#shipping_zip').val(Funeral_zip);
+			//      jQuery('#shipping_zip').attr('readonly', false);
+			</script>
+
+	</body>
+</html>
